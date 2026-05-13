@@ -1,0 +1,288 @@
+/* ─── RESET ──────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+/* ─── VARIÁVEIS ──────────────────────────────────────────────────────────── */
+:root {
+  --bg-base:       #0f0f0f;
+  --bg-surface:    #1a1a1a;
+  --bg-subtle:     #141414;
+  --border:        #232323;
+  --border-focus:  #3b82f6;
+  --accent:        #3b82f6;
+  --accent-hover:  #2563eb;
+  --text-primary:  #f0f0f0;
+  --text-secondary:#e0e0e0;
+  --text-muted:    #555555;
+  --text-hint:     #333333;
+  --radius-sm:     8px;
+  --radius-md:     12px;
+  --radius-lg:     14px;
+}
+ 
+/* ─── BASE ───────────────────────────────────────────────────────────────── */
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+}
+ 
+/* ─── HEADER ─────────────────────────────────────────────────────────────── */
+.header {
+  padding: 28px 40px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+ 
+.header-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+ 
+.header span {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+ 
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+.hero {
+  padding: 40px 40px 32px;
+}
+ 
+.hero h1 {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+ 
+.hero p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+ 
+/* ─── BUSCA ──────────────────────────────────────────────────────────────── */
+.search-wrap {
+  padding: 0 40px 40px;
+}
+ 
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  transition: border-color 0.2s;
+}
+ 
+.search-box:focus-within {
+  border-color: var(--border-focus);
+}
+ 
+.search-icon {
+  font-size: 18px;
+  color: var(--text-muted);
+}
+ 
+.search-box input {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: var(--text-primary);
+  flex: 1;
+}
+ 
+.search-box input::placeholder {
+  color: #444;
+}
+ 
+.search-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+ 
+.search-btn:hover {
+  background: var(--accent-hover);
+}
+ 
+/* ─── DIVISOR ────────────────────────────────────────────────────────────── */
+.divider {
+  height: 0.5px;
+  background: #1e1e1e;
+  margin: 0 40px 36px;
+}
+ 
+/* ─── ERRO ───────────────────────────────────────────────────────────────── */
+.error-msg {
+  margin: 0 40px 24px;
+  padding: 14px 18px;
+  background: #1f1212;
+  border: 0.5px solid #3d1a1a;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  color: #f87171;
+}
+ 
+/* ─── ESTADO VAZIO ───────────────────────────────────────────────────────── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  gap: 12px;
+  grid-column: 1 / -1;
+}
+ 
+.empty-state .empty-icon {
+  font-size: 40px;
+  color: #2a2a2a;
+}
+ 
+.empty-state p {
+  font-size: 14px;
+  color: #444;
+}
+ 
+/* ─── GRID DE RESULTADOS ─────────────────────────────────────────────────── */
+.result-area {
+  padding: 0 40px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+ 
+/* ─── CARD BASE ──────────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+ 
+/* ─── CARD DE BANDEIRA/NOME ──────────────────────────────────────────────── */
+.flag-card {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: stretch;
+  min-height: 120px;
+  overflow: hidden;
+}
+ 
+.flag-card .flag-img {
+  width: 180px;
+  min-width: 180px;
+  object-fit: cover;
+  display: block;
+  border-right: 0.5px solid var(--border);
+}
+ 
+.flag-card .flag-info {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+ 
+.flag-card .country-name {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+ 
+.flag-card .official-name {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+ 
+/* ─── STAT CARDS ─────────────────────────────────────────────────────────── */
+.stat-card {
+  padding: 20px 22px;
+}
+ 
+.stat-card .label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+ 
+.stat-card .label svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--text-muted);
+}
+ 
+.stat-card .value {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+ 
+/* ─── CARD DO MAPA ───────────────────────────────────────────────────────── */
+.map-card {
+  grid-column: 1 / -1;
+  padding: 20px 22px;
+}
+ 
+.map-card .label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+ 
+.map-card .label svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--text-muted);
+}
+ 
+/* O SVG do mapa ocupa toda a largura do card */
+.map-card .ag-canvas_svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+ 
+/* Todos os países no tom base */
+.map-card .ag-canvas_svg path {
+  fill: #2a2a2a;
+  stroke: #111;
+  stroke-width: 0.5px;
+  transition: fill 0.3s;
+}
+ 
+/* O país pesquisado será destacado via JavaScript com esta classe */
+.map-card .ag-canvas_svg path.highlighted {
+  fill: var(--accent);
+}
