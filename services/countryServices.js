@@ -13,6 +13,7 @@ async function searchCountry(countryName) {
             population: data.population,
             currency: currency,
             region: data.region,
+            flag: data.flags.svg,
             code: data.cca2,
         };
         return country
@@ -21,4 +22,4 @@ async function searchCountry(countryName) {
     }
 };
 
-export default searchCountry; 
+export default searchCountry;

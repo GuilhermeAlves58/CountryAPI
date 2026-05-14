@@ -1,15 +1,19 @@
 import express from "express";
+import searchCountry from '../services/countryServices.js';
 const router = express.Router();
 
-// Rota inicial — renderiza a página sem dados
 router.get("/", (req, res) => {
   res.render("index", { country: null, error: null });
 });
 
-// Rota de busca — recebe o formulário e busca na API
 router.post("/search", async (req, res) => {
-  
-  res.send("rota de busca funcionando"); 
+  try {
+    const result = await searchCountry(req.body.country);
+    res.render("index", { country: result, error: null });
+  } catch (err) {
+    console.log(err);
+    res.render("index", { country: null, error: "País não encontrado. Verifique o nome e tente novamente." });
+  }
 });
 
 export default router;
