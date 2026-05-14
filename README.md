@@ -129,7 +129,7 @@ Campos utilizados: `name`, `capital`, `population`, `area`, `region`, `flags`, `
 
 ## 🌐 Deploy
 
-[country-explorer.onrender.com](https://coutryapi.onrender.com/) ← substitua pelo seu link real
+[country-explorer.onrender.com](https://coutryapi.onrender.com/) ← Deploy
 
 ---
 
